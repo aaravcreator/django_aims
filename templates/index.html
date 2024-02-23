@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJANGO</title>
+    <style>
+        .monitor{
+            background-color: green;
+            color:white;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <h1>THIS IS INDEX PAGE</h1>
+    <h2>The random value is {{ random_data }}</h2>
+    <h2>List of persons</h2>
+
+    {% for person in person_list %}
+
+        {% if person == 'RAM' %}
+        <p class="monitor">{{person}} (MONITOR)</p>
+        {%else%}
+        <p>{{person}}</p>
+        {% endif %}
+
+    {% endfor %}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input id="username" type="text" name="username">
+        <label for="full_name">Full Name</label>
+        <input id="full_name" type="text" name="full_name">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

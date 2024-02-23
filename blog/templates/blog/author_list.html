@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+</head>
+<body>
+    <h1>BLOG Author Page</h1>
+
+    <form action="">
+        {{form}}
+
+        <button type="submit">Filter</button>
+    </form>
+    
+    <a href="{% url 'author_list' %}">Clear</a>
+
+    
+
+    <!-- <a href="/blog/author_list/">Clear</a> -->
+
+
+    {% for author in author_list %}
+
+    <h2>{{author.name}}</h2>
+    <p>Age: {{author.age}}</p>
+    <p>Email: {{author.email}}</p>
+    <hr>
+    {% endfor %}
+
+</body>
+</html>
