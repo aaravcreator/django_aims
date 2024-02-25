@@ -1,33 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-</head>
-<body>
-    <h1>BLOG Author Page</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>BLOG Author Page</h1>
 
-    <form action="">
-        {{form}}
+<form action="">
+    {{form}}
 
-        <button type="submit">Filter</button>
-    </form>
-    
-    <a href="{% url 'author_list' %}">Clear</a>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
 
-    
-
-    <!-- <a href="/blog/author_list/">Clear</a> -->
+<a href="{% url 'author_list' %}" class="btn btn-danger">Clear</a>
 
 
-    {% for author in author_list %}
 
-    <h2>{{author.name}}</h2>
-    <p>Age: {{author.age}}</p>
-    <p>Email: {{author.email}}</p>
-    <hr>
-    {% endfor %}
+<!-- <a href="/blog/author_list/">Clear</a> -->
+<br>
 
-</body>
-</html>
+{% for author in author_list %}
+
+<img src="{% static 'images/user_icon.png' %}" style="height: 100px; width: 100px;" alt="">
+<h2>{{author.name}}</h2>
+<p>ID: {{author.id}}</p>
+<p>Age: {{author.age}}</p>
+<p>Email: {{author.email}}</p>
+<!-- <a href="/blog/edit_author/{{author.id}}/">Edit</a> -->
+<a href="{% url 'edit_author' author.id %}" class="btn btn-warning">Edit</a>
+<a href="{% url 'delete_author' author.id %}" class="btn btn-danger">Delete</a>
+
+<hr>
+{% endfor %}
+{% endblock content %}
+
+
+

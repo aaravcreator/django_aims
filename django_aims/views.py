@@ -14,7 +14,7 @@ def index(request):
         'random_data':random_value,
         'person_list':["RAM","SHYAM","HARI"]
     }
-    return render(request,'index.html',context)
+    return render(request,'base.html',context)
 
 
 def account_view(request,username):
