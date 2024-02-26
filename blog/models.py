@@ -6,6 +6,7 @@ class Author(models.Model):
     age = models.PositiveIntegerField()
     email = models.EmailField()
     bio = models.TextField()
+    photo = models.ImageField(upload_to="author_photos/",null=True)
 
     def __str__(self):
         return self.name

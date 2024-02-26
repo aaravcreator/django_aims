@@ -2,7 +2,8 @@
 {% load static %}
 {% block content %}
 <h1>BLOG Author Page</h1>
-
+{{request.user}}
+<a href="{% url 'logoutPage' %}" class="btn btn-danger">LOGOUT</a>
 <form action="">
     {{form}}
 
@@ -11,6 +12,7 @@
 
 <a href="{% url 'author_list' %}" class="btn btn-danger">Clear</a>
 
+<a href="{% url 'create_author' %}" class="btn btn-primary">Create Author</a>
 
 
 <!-- <a href="/blog/author_list/">Clear</a> -->
@@ -18,7 +20,11 @@
 
 {% for author in author_list %}
 
+{% if author.photo %}
+<img src="{{author.photo.url}}" style="height: 100px; width: 100px;" alt="">
+{% else %}
 <img src="{% static 'images/user_icon.png' %}" style="height: 100px; width: 100px;" alt="">
+{% endif %}
 <h2>{{author.name}}</h2>
 <p>ID: {{author.id}}</p>
 <p>Age: {{author.age}}</p>
