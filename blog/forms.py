@@ -9,5 +9,5 @@ class LoginForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput)
 class AuthorForm(forms.ModelForm):
     class Meta:
-        fields = ['name','age','email','bio','photo']
+        fields = ['name','age','email','bio','photo',]
         model = Author

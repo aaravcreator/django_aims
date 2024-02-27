@@ -43,8 +43,12 @@
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
              -->
-            <p>{{request.user}}</p> 
-<a href="{% url 'logoutPage' %}" class="btn btn-danger">LOGOUT</a>
+             {% if request.user.is_authenticated %}
+            <p>Hello, <strong>{{request.user}}</strong></p> 
+<a href="{% url 'logoutPage' %}" class="ms-2 btn btn-danger">LOGOUT</a>
+{% else %}
+<a href="{% url 'loginPage' %}" class="btn btn-success">LOGIN</a>
+{% endif %}
           </div>
         </div>
       </nav>

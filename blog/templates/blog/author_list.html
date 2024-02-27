@@ -29,6 +29,9 @@
 <p>ID: {{author.id}}</p>
 <p>Age: {{author.age}}</p>
 <p>Email: {{author.email}}</p>
+<p>Created_by : {{author.created_by}}</p>
+<p>Created at : {{author.created_at}}</p>
+<p>Updated at : {{author.updated_at}}</p>
 <!-- <a href="/blog/edit_author/{{author.id}}/">Edit</a> -->
 <a href="{% url 'edit_author' author.id %}" class="btn btn-warning">Edit</a>
 <a href="{% url 'delete_author' author.id %}" class="btn btn-danger">Delete</a>
